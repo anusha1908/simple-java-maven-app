@@ -1,4 +1,4 @@
-name: Build and Deploy to ACR
+name: Build Docker Images
 
 on:
   push:
@@ -6,9 +6,14 @@ on:
       - '**'
 
 jobs:
-  build-and-deploy:
+  build:
     runs-on: ubuntu-latest
-    
+
+    env:
+      ACR_NAME: ${{ secrets.ACR_NAME }}
+      ACR_USERNAME: ${{ secrets.ACR_USERNAME }}
+      ACR_PASSWORD: ${{ secrets.ACR_PASSWORD }}
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -31,4 +36,4 @@ jobs:
         run: mvn clean compile -DskipTests
 
       - name: Build Docker image with JIB
-        run: mvn jib:build -Dimage=${{ secrets.ACR_NAME }}.azurecr.io/${{ github.repository }}:${{ github.sha::7 }}
+        run: mvn jib:build -Dimage=${{ secrets.ACR_NAME }}.azurecr.io/${{ github.repository }}:${{ github.sha[:7] }}
