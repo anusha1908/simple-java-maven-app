@@ -36,4 +36,6 @@ jobs:
         run: mvn clean compile -DskipTests
 
       - name: Build Docker image with JIB
-        run: mvn jib:build -Dimage=${{ secrets.ACR_NAME }}.azurecr.io/${{ github.repository }}:${{ github.sha[:7] }}
+        run: |
+          COMMIT_HASH=$(git rev-parse --short HEAD)
+          mvn jib:build -Dimage=${{ secrets.ACR_NAME }}.azurecr.io/${{ github.repository }}:$COMMIT_HASH
