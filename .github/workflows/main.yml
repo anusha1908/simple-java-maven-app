@@ -25,7 +25,7 @@ jobs:
           distribution: 'adopt'
 
       - name: Set up Maven
-        uses: actions/setup-maven@v3
+        uses: stCarolas/setup-maven@v5
         with:
           maven-version: '3.9.2'
 
@@ -43,4 +43,3 @@ jobs:
       - name: Build Docker image with JIB
         run: |
           COMMIT_HASH=$(git rev-parse --short HEAD)
-          mvn jib:build -Dimage=${{ secrets.ACR_NAME }}.azurecr.io/${{ github.repository }}:$COMMIT_HASH
