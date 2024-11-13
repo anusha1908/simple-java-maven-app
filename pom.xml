@@ -60,4 +60,28 @@
             <configuration>
               <rules>
                 <requireMavenVersion>
-                  <version>[_{{{CITATION{{{_1{](https://github.com/owenthereal/owenou.com/tree/4af1eb3d1d8b50c30829532a2e8a5ae797658169/_posts%2Fjava%2F_posts%2F2011-02-23-speed-up-j2ee-environment-setup-with-jetty-maven-plugin.md)[_{{{CITATION{{{_2{](https://github.com/Ikuyadeu/github-api-scripts/tree/25028e7babaa5510c6a01ae379f2c12d27c42198/readmes%2Ffirebase%2Ffinagle.md)[_{{{CITATION{{{_3{](https://github.com/mrhuangyuhui/notes-1/tree/b4ce4d22365774d331d5c2303fd367e2f089fb5d/books%2FServlet%E3%80%81JSP%20%E5%92%8C%20Spring%20MVC%20%E5%88%9D%E5%AD%A6%E6%8C%87%E5%8D%97%2F%E7%AC%AC%207%20%E7%AB%A0%20%E6%A0%87%E7%AD%BE%E6%96%87%E4%BB%B6.md)[_{{{CITATION{{{_4{](https://github.com/jisonami/jisonami.github.io/tree/3696afd342284791bc7bd60ed1838503c04092c9/_posts%2FMaven%2F2016-12-04-MavenUsageSummary.md)[_{{{CITATION{{{_5{](https://github.com/zhang13690/JavaEESecondaryTutorial/tree/fb9a6770f8622e3ccdffff0638f63fcc2eeb5d05/3.Mybatis.md)[_{{{CITATION{{{_6{](https://github.com/AlexRogalskiy/reposio/tree/e1d0f40b8511faef35e7009ce0aa5c2564c6af3e/scripts%2Ffastcmd%2Fdictionary2.md)
+                  <version>[3.9.2,)</version>
+                </requireMavenVersion>
+                <requireJavaVersion>
+                  <version>[17,)</version>
+                </requireJavaVersion>
+              </rules>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+<project>
+  ...
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>com.google.cloud.tools</groupId>
+        <artifactId>jib-maven-plugin</artifactId>
+        <version>3.2.0</version>
+      </plugin>
+    </plugins>
+  </build>
+  ...
+</project>
